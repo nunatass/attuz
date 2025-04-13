@@ -11,5 +11,5 @@ pre-commit:
       exclude: "node_modules"
 commit-msg:
   commands:
-    "lint commit message":
-      run: npx --no -- commitlint --edit "$1"
+    "conventional-commit":
+      run: npx commitlint --edit $1
