@@ -6,7 +6,8 @@ import { Label } from "@/components/ui/label"
 import { PlusMinusButton } from "@/components/ui/plus-minus-button"
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
-import type { Flavor } from "@/lib/types"
+import type { DeliveryPeriod, Flavor } from "@/lib/types"
+import { cn } from "@/lib/utils"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { ChevronRight } from "lucide-react"
 import { useId } from "react"
@@ -15,6 +16,7 @@ import { z } from "zod"
 
 type ProductDetailsFormProps = {
 	flavors: Flavor[]
+	deliveryPeriods: DeliveryPeriod[]
 }
 
 const FormSchema = z.object({
@@ -23,7 +25,7 @@ const FormSchema = z.object({
 	}),
 })
 
-export function ProductDetailsForm({ flavors }: ProductDetailsFormProps) {
+export function ProductDetailsForm({ flavors, deliveryPeriods }: ProductDetailsFormProps) {
 	const id = useId()
 
 	const form = useForm<z.infer<typeof FormSchema>>({
@@ -44,20 +46,32 @@ export function ProductDetailsForm({ flavors }: ProductDetailsFormProps) {
 						<div className="flex flex-col gap-6">
 							<FormItem>
 								<FormLabel className="font-semibold">Flavors</FormLabel>
-								<Select onValueChange={field.onChange} defaultValue={flavors[0].id}>
-									<FormControl>
-										<SelectTrigger>
-											<SelectValue />
-										</SelectTrigger>
-									</FormControl>
-									<SelectContent>
-										{flavors.map(flavor => (
-											<SelectItem value={flavor.id} key={flavor.id}>
+								<RadioGroup
+									className="grid grid-cols-2 md:grid-cols-4 gap-3"
+									defaultValue={flavors[0].id}
+									onValueChange={value => {
+										field.onChange(value)
+									}}
+									value={field.value || flavors[0].id}
+								>
+									{flavors.map(flavor => (
+										<div
+											key={flavor.id}
+											className={cn(
+												"relative flex cursor-pointer flex-col items-center gap-3 rounded-md border px-2 py-3 text-center shadow-xs transition-colors border-input",
+												(field.value || flavors[0].id) === flavor.id && "border-primary/50 bg-[#2B4021]/10",
+											)}
+										>
+											<RadioGroupItem id={flavor.id} value={flavor.id} className="sr-only" />
+											<Label
+												className="text-foreground cursor-pointer text-xs leading-none font-medium after:absolute after:inset-0"
+												htmlFor={flavor.id}
+											>
 												{flavor.value}
-											</SelectItem>
-										))}
-									</SelectContent>
-								</Select>
+											</Label>
+										</div>
+									))}
+								</RadioGroup>
 							</FormItem>
 							<FormItem>
 								<RadioGroup className="gap-2 border rounded-md flex flex-col divide-y" defaultValue="1">
@@ -90,25 +104,26 @@ export function ProductDetailsForm({ flavors }: ProductDetailsFormProps) {
 										</div>
 
 										<div className="flex flex-col gap-4">
-											<Select onValueChange={field.onChange} defaultValue={flavors[0].id}>
+											<Select
+												onValueChange={value => {
+													field.onChange(value)
+													document.getElementById(`${id}-2`)?.click()
+												}}
+												defaultValue={deliveryPeriods[0].id}
+											>
 												<FormControl>
 													<SelectTrigger>
 														<SelectValue />
 													</SelectTrigger>
 												</FormControl>
 												<SelectContent>
-													{flavors.map(flavor => (
-														<SelectItem value={flavor.id} key={flavor.id}>
-															{flavor.value}
+													{deliveryPeriods.map(deliveryPeriod => (
+														<SelectItem value={deliveryPeriod.id} key={deliveryPeriod.id}>
+															{deliveryPeriod.value}
 														</SelectItem>
 													))}
 												</SelectContent>
 											</Select>
-											<ul>
-												<li>• Free to pause or cancel anytime</li>
-												<li>• Save with every recurring delivery</li>
-												<li>• Access to exclusive flavors</li>
-											</ul>
 										</div>
 									</div>
 								</RadioGroup>

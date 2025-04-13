@@ -1,4 +1,19 @@
 import { ProductDetailsForm } from "@/components/layouts/forms/product-details-form"
+import type { DeliveryPeriod, Flavor } from "@/lib/types"
+
+const flavors: Flavor[] = [
+	{ id: "HydraCore®", value: "HydraCore®" },
+	{ id: "HydraIgnite®", value: "HydraIgnite®" },
+	{ id: "HydraRush®", value: "HydraRush®" },
+	{ id: "HydraLift®", value: "HydraLift®" },
+]
+
+const deliveryPeriods: DeliveryPeriod[] = [
+	{ id: "7", value: "Delivery every week" },
+	{ id: "30", value: "Delivery every month" },
+	{ id: "90", value: "Delivery every 3 month" },
+	{ id: "180", value: "Delivery every 6 month" },
+]
 
 export function ProductDetailsInfo() {
 	return (
@@ -12,7 +27,7 @@ export function ProductDetailsInfo() {
 						premium mushroom extracts, it ensures enhanced cognitive function and creative resilience for intense work
 						sessions and creative marathons.
 					</p>
-					<ProductDetailsForm flavors={[{ id: "teste", value: "teste" }]} />
+					<ProductDetailsForm flavors={flavors} deliveryPeriods={deliveryPeriods} />
 				</div>
 			</div>
 		</div>
