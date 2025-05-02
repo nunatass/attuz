@@ -1,13 +1,11 @@
-"use client"
-
 import Image from "next/image"
-import Link from "next/link"
-import { Link as ScrollLink } from "react-scroll"
 
 import logo from "@/../public/logo.png"
 import { footerData } from "@/data/footer"
 import { Mail } from "lucide-react"
+import Link from "next/link"
 import paymentOptionImg from "../../../public/payments-icons.svg"
+import { SmartLink } from "../ui/smart-link"
 
 export function Footer() {
 	return (
@@ -15,9 +13,9 @@ export function Footer() {
 			<div className="container flex flex-col gap-8 px-6 py-10 md:py-20">
 				<div className="grid grid-cols-1 justify-between gap-y-8 sm:grid-cols-2 md:grid-cols-3 lg:flex">
 					<div className="flex flex-col gap-4">
-						<ScrollLink to="home" smooth={true} duration={1000} aria-label="logo">
+						<SmartLink to="#home" aria-label="logo">
 							<Image src={logo} alt="logo" className="w-28 lg:w-44 cursor-pointer" />
-						</ScrollLink>
+						</SmartLink>
 
 						<div className="flex flex-col gap-6">
 							<div className="flex flex-col gap-4">
@@ -53,15 +51,9 @@ export function Footer() {
 										key={item.label}
 										className="transition-all duration-300 ease-in-out md:hover:text-gray-50 cursor-pointer"
 									>
-										{item.link.startsWith("#") ? (
-											<ScrollLink to={item.link.replace("#", "")} smooth={true} offset={-50} duration={1000}>
-												{item.label}
-											</ScrollLink>
-										) : (
-											<Link href={item.link} aria-label={item.label}>
-												{item.label}
-											</Link>
-										)}
+										<SmartLink to={item.link} aria-label={item.label}>
+											{item.label}
+										</SmartLink>
 									</li>
 								))}
 							</ul>

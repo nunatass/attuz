@@ -12,7 +12,7 @@ export default function FAQsArea() {
 			<div className="h-[0.7px] w-full bg-gray-300" />
 			<div className="w-full h-max flex flex-col md:flex-row justify-between items-start gap-4">
 				<h2 className="text-xl lg:text-2xl font-semibold md:mt-4">FREQUENTLY ASKED QUESTIONS</h2>
-				<Accordion type="single" collapsible className="w-full" defaultValue="3">
+				<Accordion type="single" collapsible className="w-full" defaultValue="1">
 					{faqs.map(item => (
 						<AccordionItem value={item.id} key={item.id} className="py-2">
 							<AccordionPrimitive.Header className="flex">

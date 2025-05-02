@@ -1,4 +1,4 @@
-import { ProductDetailsForm } from "@/components/layouts/forms/product-details-form"
+import { ProductDetailsForm } from "@/components/layouts/pages/home/product-details/product-details-form"
 import type { DeliveryPeriod, Flavor } from "@/lib/types"
 
 const flavors: Flavor[] = [

@@ -47,7 +47,7 @@ export function ProductDetailsThumb({ imageURLs, imgWidth = 416, imgHeight = 480
 			<div
 				className={cn(
 					"flex flex-col-reverse gap-4 w-full lg:max-w-[540px] ",
-					width > 720 && width < 1020 && "flex-row-reverse  w-full",
+					width > 720 && width < 1020 && "flex-row-reverse w-full",
 				)}
 			>
 				<nav className={cn("flex gap-4", width > 720 && width < 1020 && "flex-col")}>
@@ -58,7 +58,7 @@ export function ProductDetailsThumb({ imageURLs, imgWidth = 416, imgHeight = 480
 								variant="ghost"
 								key={item}
 								className={cn(
-									"h-[100px] w-[100px] sm:h-[120px] sm:w-[120px] bg-gray-100 p-0 transition-all duration-300 ease-in-out rounded-md overflow-hidden",
+									"h-[100px] w-[100px] sm:h-[120px] sm:w-[120px] bg-gray-100 p-0 transition-all duration-300 ease-in-out rounded-lg overflow-hidden",
 									width > 720 && width < 1020 && "h-[80px] w-[80px]",
 									imageURLs[activeIndex] === item && "",
 								)}
@@ -77,7 +77,7 @@ export function ProductDetailsThumb({ imageURLs, imgWidth = 416, imgHeight = 480
 				</nav>
 				<div
 					className={cn(
-						"flex items-center justify-center lg:w-[50vw] max-w-[540px] w-full aspect-square overflow-hidden rounded-md",
+						"flex items-center justify-center lg:w-[50vw] max-w-[540px] w-full aspect-square overflow-hidden rounded-lg",
 						width > 720 && width < 1020 && "w-full max-w-full",
 					)}
 				>

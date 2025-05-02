@@ -26,7 +26,7 @@ export const footerData = [
 
 			{
 				label: "Contact Us",
-				link: "/contact",
+				link: "/contact-us",
 			},
 		],
 	},

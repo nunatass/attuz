@@ -58,7 +58,7 @@ export function ProductDetailsForm({ flavors, deliveryPeriods }: ProductDetailsF
 										<div
 											key={flavor.id}
 											className={cn(
-												"relative flex cursor-pointer flex-col items-center gap-3 rounded-md border px-2 py-3 text-center shadow-xs transition-colors border-input",
+												"relative flex cursor-pointer flex-col items-center gap-3 rounded-lg border px-2 py-3 text-center shadow-xs transition-colors border-input",
 												(field.value || flavors[0].id) === flavor.id && "border-primary/50 bg-[#2B4021]/10",
 											)}
 										>
@@ -74,9 +74,9 @@ export function ProductDetailsForm({ flavors, deliveryPeriods }: ProductDetailsF
 								</RadioGroup>
 							</FormItem>
 							<FormItem>
-								<RadioGroup className="gap-2 border rounded-md flex flex-col divide-y" defaultValue="1">
+								<RadioGroup className="gap-2 border rounded-lg flex flex-col divide-y" defaultValue="1">
 									{/* Radio card #1 */}
-									<div className="relative flex w-full items-start gap-2 rounded-md p-4 outline-none">
+									<div className="relative flex w-full items-start gap-2 rounded-lg p-4 outline-none">
 										<RadioGroupItem
 											value="1"
 											id={`${id}-1`}

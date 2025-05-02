@@ -8,7 +8,7 @@ type ReviewItemProps = {
 export function ReviewItem({ review }: ReviewItemProps) {
 	const { comment, createdAt, rating, user } = review
 	return (
-		<div className="flex min-h-40 items-center gap-2 bg-white px-4 py-4 rounded-md shadow-sm">
+		<div className="flex min-h-40 items-center gap-2 bg-white px-4 py-4 rounded-lg shadow-sm">
 			<div className="flex flex-col gap-2">
 				<Rating
 					style={{ display: "inline-block" }}
