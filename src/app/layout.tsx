@@ -1,6 +1,7 @@
 import { SFTSchriftedSans } from "@/fonts"
 import type { Metadata } from "next"
 import "./globals.css"
+import { Footer } from "@/components/layouts/footer"
 
 export const metadata: Metadata = {
 	title: "ATTUZ Cognitive Booster",
@@ -17,6 +18,7 @@ export default function RootLayout({
 			<body className={`${SFTSchriftedSans.className} antialiased`} style={{}}>
 				{/* <Hydration>{children}</Hydration> */}
 				{children}
+				<Footer />
 			</body>
 		</html>
 	)

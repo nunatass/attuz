@@ -1,29 +1,25 @@
 "use client"
 
+import logo from "@/../public/logo.png"
 import { useSticky } from "@/hooks/use-sticky"
-import { useWindowSize } from "@/hooks/use-window-size"
 import { cn } from "@/lib/utils"
-import { MenuIcon, ShoppingCart } from "lucide-react"
+import { ShoppingBag } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
 import { useCallback, useState } from "react"
 import { Link as ScrollLink } from "react-scroll"
-import logo from "../../../public/logo.png"
-import { SideMenu } from "../layouts/side-menu"
+import { SideCart } from "../layouts/side-cart"
 import { SidePanel } from "../side-panel"
 import { Button } from "../ui/button"
 import { DiscountBanner } from "./discounts-banner"
 
 export function Header() {
-	const [isSideMenuOpen, setIsSideMenuOpen] = useState(false)
-	const { width } = useWindowSize()
+	const [isSideCartOpen, setIsSideCartOpen] = useState(false)
 	const { sticky } = useSticky(40)
 
-	const handleMenuClick = useCallback(() => {
-		if (width <= 640) {
-			setIsSideMenuOpen(true)
-		}
-	}, [width, setIsSideMenuOpen])
+	const handleCartClick = useCallback(() => {
+		setIsSideCartOpen(true)
+	}, [setIsSideCartOpen])
 
 	return (
 		<div className="relative w-screen z-30 overflow-x-hidden">
@@ -48,24 +44,23 @@ export function Header() {
 							</ScrollLink>
 						</li>
 						<li className="hover:font-semibold transition-colors duration-300 cursor-pointer">
-							<Link href="#">About us</Link>
+							<Link href="/about-us">About Us</Link>
 						</li>
 						<li className="hover:font-semibold transition-colors duration-300 cursor-pointer">
 							<ScrollLink to="home-faqs" smooth={true} offset={-50} duration={500}>
-								Faqs
+								FAQs
 							</ScrollLink>
 						</li>
 					</ul>
 				</nav>
-
-				<Button variant="ghost" className="flex gap-4 justify-center items-center -mr-3" onClick={handleMenuClick}>
-					<ShoppingCart size={16} className="hidden sm:flex" />
-					<MenuIcon size={24} className="sm:hidden flex" />
-					<span className="hidden sm:flex">Cart</span>
-				</Button>
+				<div className="flex">
+					<Button variant="ghost" className="flex justify-center items-center rounded-full" onClick={handleCartClick}>
+						<ShoppingBag size={24} />
+					</Button>
+				</div>
 			</header>
-			<SidePanel isOpen={isSideMenuOpen} setIsOpen={setIsSideMenuOpen}>
-				<SideMenu isOpen={isSideMenuOpen} setIsOpen={setIsSideMenuOpen} />
+			<SidePanel isOpen={isSideCartOpen} setIsOpen={setIsSideCartOpen}>
+				<SideCart isOpen={isSideCartOpen} setIsOpen={setIsSideCartOpen} />
 			</SidePanel>
 		</div>
 	)

@@ -19,7 +19,7 @@ export function ProductDetailsInfo() {
 	return (
 		<div className="h-full w-full lg:max-w-[540px]">
 			<div className="flex flex-col w-full text-wrap gap-4">
-				<h1 className="text-4xl lg:text-5xl font-semibold leading-snug text-wrap w-full">ATTUZ Cognitive Booster™</h1>
+				<h1 className="text-3xl lg:text-5xl font-semibold leading-snug text-wrap w-full">ATTUZ Cognitive Booster™</h1>
 				<div className="flex flex-col gap-2">
 					<h3 className="text-lg font-semibold">Fuel Your Creativity with Mental Clarity & Focus.</h3>
 					<p>
