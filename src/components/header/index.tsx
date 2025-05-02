@@ -1,16 +1,22 @@
 "use client"
 
+import { useSticky } from "@/hooks/use-sticky"
 import { useWindowSize } from "@/hooks/use-window-size"
+import { cn } from "@/lib/utils"
 import { MenuIcon, ShoppingCart } from "lucide-react"
+import Image from "next/image"
 import Link from "next/link"
 import { useCallback, useState } from "react"
+import logo from "../../../public/logo.png"
 import { SideMenu } from "../layouts/side-menu"
 import { SidePanel } from "../side-panel"
 import { Button } from "../ui/button"
+import { DiscountBanner } from "./discounts-banner"
 
 export function Header() {
 	const [isSideMenuOpen, setIsSideMenuOpen] = useState(false)
 	const { width } = useWindowSize()
+	const { sticky } = useSticky()
 
 	const handleMenuClick = useCallback(() => {
 		if (width <= 640) {
@@ -19,9 +25,20 @@ export function Header() {
 	}, [width, setIsSideMenuOpen])
 
 	return (
-		<div className="relative">
-			<header className="flex h-14 justify-between items-center w-screen px-6 lg:px-16 shadow-sm">
-				<div>Logo</div>
+		<div className="relative w-screen z-30 overflow-x-hidden">
+			<div className="w-full h-10 bg-[#8DAA9D] justify-center flex items-center">
+				<DiscountBanner />
+			</div>
+			<header
+				className={cn(
+					"flex h-14 justify-between items-center w-full px-6 lg:px-16 border-0 bg-white",
+					sticky &&
+						"fixed -top-[60px] left-0 translate-y-14 shadow-sm transition-all duration-700 ease-in-out border-b-1",
+				)}
+			>
+				<div>
+					<Image src={logo} height={80} width={80} alt="Attuz logo" />
+				</div>
 				<nav>
 					<ul className="gap-8 hidden sm:flex">
 						<li className="hover:font-semibold transition-colors duration-300 cursor-pointer">

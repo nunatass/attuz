@@ -112,5 +112,8 @@
 	body {
 		@apply bg-background text-foreground;
 		color: #0e2f23;
+		svg.star-svg {
+			display: inline;
+		}
 	}
 }

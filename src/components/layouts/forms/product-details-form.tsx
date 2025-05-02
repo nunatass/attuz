@@ -9,7 +9,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import type { DeliveryPeriod, Flavor } from "@/lib/types"
 import { cn } from "@/lib/utils"
 import { zodResolver } from "@hookform/resolvers/zod"
-import { ChevronRight } from "lucide-react"
+import { Check, ChevronRight } from "lucide-react"
 import { useId } from "react"
 import { useForm } from "react-hook-form"
 import { z } from "zod"
@@ -131,18 +131,34 @@ export function ProductDetailsForm({ flavors, deliveryPeriods }: ProductDetailsF
 						</div>
 					)}
 				/>
-				<div className="flex w-full gap-4 md:gap-8 h-11">
-					<PlusMinusButton
-						className="rounded-full border "
-						quantity={1}
-						onValueChange={value => {
-							return value
-						}}
-					/>
-					<Button className="w-full h-full rounded-full flex justify-between px-6">
-						ADD TO CART
-						<ChevronRight size={16} aria-hidden="true" />
-					</Button>
+				<div className="flex flex-col gap-6 w-full">
+					<div className="flex w-full gap-4 md:gap-8 h-11">
+						<PlusMinusButton
+							className="rounded-full border "
+							quantity={1}
+							onValueChange={value => {
+								return value
+							}}
+						/>
+						<Button className="w-full h-full rounded-full flex justify-between px-6 transition-colors duration-200 relative group">
+							ADD TO CART
+							<ChevronRight
+								size={16}
+								aria-hidden="true"
+								className=" absolute right-4 group-hover:translate-x-1 transition-all duration-200"
+							/>
+						</Button>
+					</div>
+					<div className="flex w-full justify-between text-sm">
+						<div className="flex w-full items-center gap-1">
+							<Check size={16} aria-hidden="true" />
+							Update or cancel anytime
+						</div>
+						<div className="flex w-full justify-end items-center gap-1">
+							<Check size={16} aria-hidden="true" />
+							30 days money-back guarantee{" "}
+						</div>
+					</div>
 				</div>
 			</form>
 		</Form>
