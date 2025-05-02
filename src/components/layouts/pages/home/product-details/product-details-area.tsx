@@ -2,7 +2,7 @@ import { TextBanner } from "../text-banner"
 import { ProductDetailsInfo } from "./product-details-info"
 import { ProductDetailsThumb } from "./product-details-thumb"
 
-export function ProductDetails() {
+export function ProductDetailsArea() {
 	return (
 		<section
 			id="product-details"

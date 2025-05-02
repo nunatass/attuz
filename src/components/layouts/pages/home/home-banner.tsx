@@ -9,9 +9,17 @@ import { Link as ScrollLink } from "react-scroll"
 export function HomeBanner() {
 	const { sticky } = useSticky()
 	return (
-		<section className={cn("w-screen h-screen overflow-hidden bg-[#f6f5f1] border-1", sticky && "mt-14")}>
+		<section id="home" className={cn("w-screen h-screen overflow-hidden bg-[#f6f5f1] border-1", sticky && "mt-14")}>
 			<div className="h-full w-full relative">
-				<video className="w-full h-full object-cover z-0" autoPlay loop playsInline muted>
+				<video
+					className="w-full h-full object-cover z-0"
+					autoPlay
+					loop
+					playsInline
+					muted
+					preload="auto"
+					poster="/your-poster-image.jpg"
+				>
 					<source
 						src="https://cdn.sanity.io/files/jf30o7wb/production/9087ac8a58e366fe595536400b9e2967a55184aa.mp4"
 						type="video/mp4"

@@ -10,9 +10,9 @@ export function ReviewArea() {
 	const carouselPlugin = useRef(Autoplay({ delay: 3000, stopOnInteraction: true }))
 
 	return (
-		<div className="flex w-full flex-col items-center px-4">
-			<Image alt="trustpilot" width={500} height={50} src="/trustpilot-header.webp" />
-			<p className="pb-4 text-lg">Verified 5-star reviews*</p>
+		<div className="flex w-full flex-col items-center">
+			<Image alt="trustpilot" width={400} height={40} src="/trustpilot-header.webp" />
+			<p className="pb-4 text-sm">Verified 4.6-star reviews*</p>
 			<Carousel
 				className="w-full"
 				opts={{ loop: true }}

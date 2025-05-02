@@ -7,6 +7,7 @@ import { MenuIcon, ShoppingCart } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
 import { useCallback, useState } from "react"
+import { Link as ScrollLink } from "react-scroll"
 import logo from "../../../public/logo.png"
 import { SideMenu } from "../layouts/side-menu"
 import { SidePanel } from "../side-panel"
@@ -16,7 +17,7 @@ import { DiscountBanner } from "./discounts-banner"
 export function Header() {
 	const [isSideMenuOpen, setIsSideMenuOpen] = useState(false)
 	const { width } = useWindowSize()
-	const { sticky } = useSticky()
+	const { sticky } = useSticky(40)
 
 	const handleMenuClick = useCallback(() => {
 		if (width <= 640) {
@@ -31,29 +32,33 @@ export function Header() {
 			</div>
 			<header
 				className={cn(
-					"flex h-14 justify-between items-center w-full px-6 lg:px-16 border-0 bg-white",
+					"flex h-14 justify-between items-center w-full px-4 lg:px-16 border-0 bg-white",
 					sticky &&
 						"fixed -top-[60px] left-0 translate-y-14 shadow-sm transition-all duration-700 ease-in-out border-b-1",
 				)}
 			>
-				<div>
-					<Image src={logo} height={80} width={80} alt="Attuz logo" />
-				</div>
+				<ScrollLink to="home" smooth={true} offset={-50} duration={500}>
+					<Image src={logo} height={80} width={80} alt="Attuz logo" className="cursor-pointer" />
+				</ScrollLink>
 				<nav>
 					<ul className="gap-8 hidden sm:flex">
 						<li className="hover:font-semibold transition-colors duration-300 cursor-pointer">
-							<Link href="#">Home</Link>
+							<ScrollLink to="home" smooth={true} offset={-50} duration={500}>
+								Home
+							</ScrollLink>
 						</li>
 						<li className="hover:font-semibold transition-colors duration-300 cursor-pointer">
 							<Link href="#">About us</Link>
 						</li>
 						<li className="hover:font-semibold transition-colors duration-300 cursor-pointer">
-							<Link href="#">Faqs</Link>
+							<ScrollLink to="home-faqs" smooth={true} offset={-50} duration={500}>
+								Faqs
+							</ScrollLink>
 						</li>
 					</ul>
 				</nav>
 
-				<Button variant="ghost" className="flex gap-4 justify-center items-center" onClick={handleMenuClick}>
+				<Button variant="ghost" className="flex gap-4 justify-center items-center -mr-3" onClick={handleMenuClick}>
 					<ShoppingCart size={16} className="hidden sm:flex" />
 					<MenuIcon size={24} className="sm:hidden flex" />
 					<span className="hidden sm:flex">Cart</span>
