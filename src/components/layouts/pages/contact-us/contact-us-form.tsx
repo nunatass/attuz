@@ -39,11 +39,13 @@ export const ContactUsForm = () => {
 		defaultValues: { name: "", email: "", message: "" },
 	})
 
-	const onSubmit = async (data: {
-		name: string
-		email: string
-		message: string
-	}) => {
+	const onSubmit = async (
+		// 	data: {
+		// 	name: string
+		// 	email: string
+		// 	message: string
+		// }
+	) => {
 		// sendMail(data)
 		// if (isError) {
 		// 	toast.error("Error sending contact email")
