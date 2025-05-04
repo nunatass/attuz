@@ -1,7 +1,7 @@
 "use client"
 
 import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel"
-import { reviews } from "@/data/home-reviews-data"
+import { reviews } from "@/data/home-reviews"
 import Autoplay from "embla-carousel-autoplay"
 import Image from "next/image"
 import { useRef } from "react"
