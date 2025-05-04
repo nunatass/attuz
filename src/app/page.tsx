@@ -14,8 +14,8 @@ export default function HomePage() {
 			<Wrapper className="w-screen flex justify-center items-center flex-col gap-8 overflow-x-hidden pt-0 lg:pt-0">
 				<ProductDetailsArea />
 				<ProductDiferencialArea />
-				<ReviewArea />
 				<FAQsArea />
+				<ReviewArea />
 			</Wrapper>
 		</div>
 	)

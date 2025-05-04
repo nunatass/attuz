@@ -51,7 +51,11 @@ export function Footer() {
 										key={item.label}
 										className="transition-all duration-300 ease-in-out md:hover:text-gray-50 cursor-pointer"
 									>
-										<SmartLink to={item.link} aria-label={item.label}>
+										<SmartLink
+											to={item.link}
+											aria-label={item.label}
+											offset={item.link === "#write-review" ? -85 : -50}
+										>
 											{item.label}
 										</SmartLink>
 									</li>

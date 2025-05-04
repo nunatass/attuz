@@ -5,6 +5,7 @@ import { reviews } from "@/data/home-reviews"
 import Autoplay from "embla-carousel-autoplay"
 import Image from "next/image"
 import { useRef } from "react"
+import { ReviewForm } from "./review-form"
 import { ReviewItem } from "./review-item"
 export function ReviewArea() {
 	const carouselPlugin = useRef(Autoplay({ delay: 3000, stopOnInteraction: true }))
@@ -28,6 +29,9 @@ export function ReviewArea() {
 					))}
 				</CarouselContent>
 			</Carousel>
+			<div className="w-full mt-8" id="write-review">
+				<ReviewForm />
+			</div>
 		</div>
 	)
 }

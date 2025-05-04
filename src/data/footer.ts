@@ -8,7 +8,7 @@ export const footerData = [
 			},
 			{
 				label: "Write a Review",
-				link: "-write-review-",
+				link: "#write-review",
 			},
 		],
 	},
